@@ -1,0 +1,30 @@
+<%- include('partials/header') %>
+
+<div class="container mt-4">
+
+    <% if (musicToDoList && musicToDoList.length > 0) { %>
+        <ul class="list-group mb-4">
+            <% musicToDoList.forEach((item, index) => { %>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <form action="/toggle-completion-music" method="post" id="form_<%= index %>">
+                        <input class="form-check-input me-2" type="checkbox" name="index" value="<%= index %>" onchange="document.getElementById('form_<%= index %>').submit();" <%= item.completed ? 'checked' : '' %> />
+                        <span style="text-decoration: <%= item.completed ? 'line-through' : 'none' %>;"><%= item.task %></span>
+                    </form>
+                </li>
+            <% }); %>
+        </ul>
+    <% } else { %>
+        <div class="alert alert-info">No tasks yet. Add one below!</div>
+    <% } %>
+
+    <!-- Form with Bootstrap styling -->
+    <form action="/submitMusic" method="post" class="mb-4">
+        <div class="mb-3">
+            <label for="newToDo" class="form-label">Task</label>
+            <input type="text" name="newToDo" id="newToDo" class="form-control" placeholder="Add a new to do list item">
+        </div>
+        <button type="submit" class="btn btn-primary">Add</button>
+    </form>
+</div>
+
+<%- include('partials/footer') %>

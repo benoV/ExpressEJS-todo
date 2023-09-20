@@ -1,0 +1,26 @@
+/* make the body full-height */
+.main {
+  height: 600px;
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", sans-serif;
+  background-color: #f2f2f2;
+  /* add a mesmerizing background using css gradients */
+    background: linear-gradient(135deg, #325adf 0%, #e7530f 100%);
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    
+
+}
+
+/* make the footer stick to the bottom of the viewport */
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  line-height: 60px;
+  background-color: #f2f2f2;
+}
